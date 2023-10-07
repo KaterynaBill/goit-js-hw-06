@@ -1,11 +1,13 @@
-
 const fontSizeControl = document.getElementById('font-size-control');
 const text = document.getElementById('text');
 
 
-fontSizeControl.addEventListener('input', () => {
+const initialFontSize = parseInt(getComputedStyle(text).fontSize);
 
-  const fontSize = fontSizeControl.value;
+
+fontSizeControl.value = initialFontSize;
+
+fontSizeControl.addEventListener('input', () => {
   
-  text.style.fontSize = `${fontSize}px`;
+  text.style.fontSize = fontSizeControl.value + 'px';
 });
